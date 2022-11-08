@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
+import {NavLink, BrowserRouter, Route, Routes } from  "react-router-dom"
+import MainH from "./Components/history/MainH"
+import MainI from "./Components/idea/MainI"
 function App() {
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <BrowserRouter>
+    <nav>
+      <NavLink to="/" style={{'marginRight': '20px'}}>HISTORY</NavLink>
+      <NavLink to="/history" >AUKOJIMAI </NavLink>
+      </nav>
+    <Routes>
+      <Route path="/" element={<MainH/>}></Route>
+      <Route path="/history" element={<MainI/>}></Route>
+    </Routes>
+    </BrowserRouter>
     </div>
   );
 }
+
 
 export default App;
